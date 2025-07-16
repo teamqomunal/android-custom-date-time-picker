@@ -3,9 +3,8 @@ package com.qomunal.opensource.androidresearch.ui.main
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.qomunal.opensource.androidresearch.common.base.BaseActivity
-import com.qomunal.opensource.androidresearch.common.ext.dateFormater
 import com.qomunal.opensource.androidresearch.common.ext.showDatePickerExt
-import com.qomunal.opensource.androidresearch.common.ext.showToast
+import com.qomunal.opensource.androidresearch.common.ext.showTimePickerExt
 import com.qomunal.opensource.androidresearch.databinding.ActivityMainBinding
 import java.util.Calendar
 
@@ -26,9 +25,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private var date1 = dateToday
 
     private var minHour = 0
-    private var minMinute= 0
+    private var minMinute = 0
 
     private val viewModel: MainViewModel by viewModels()
+
     private val router: MainRouter by lazy {
         MainRouter(this)
     }
@@ -43,34 +43,26 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun initUI() {
         binding.apply {
-            btnTest1.setOnClickListener {
-                showDatePickerExt(
-                    minDate = date1,
-                    isUsingTimePicker = true,
-                    minHour = hour,
-                    minMinute = minute
-                ) { date, time, day, month, year, hour, minute ->
-                    btnTest1.text = "$date $time"
-                    date1 = date
-                    minute?.let {
-                        minMinute = it
-                    }
-                    hour?.let {
-                        minHour = it
-                    }
-
+            btnDatePicker.setOnClickListener {
+                showDatePickerExt { date, time, day, month, year, hour, minute ->
+                    btnDatePicker.text = "$date"
                 }
             }
 
-            btnTest2.setOnClickListener {
+            btnTimePicker.setOnClickListener {
+                showTimePickerExt { date, time, hour, minute ->
+                    btnTimePicker.text = "$time"
+                }
+            }
+
+            btnDateTimePicker.setOnClickListener {
                 showDatePickerExt(
                     minDate = date1,
                     isUsingTimePicker = true,
-                    minHour = minHour,
-                    minMinute = minMinute
                 ) { date, time, day, month, year, hour, minute ->
-                    btnTest2.text = "$date $time"
-                    date1 = date
+
+                    btnDateTimePicker.text = "$date $time"
+
                 }
             }
         }
