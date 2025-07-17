@@ -1,5 +1,6 @@
 package com.qomunal.opensource.androidresearch.common.ext
 
+import androidx.core.util.Pair
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
@@ -55,13 +56,13 @@ fun showMaterialTimePickerExt(
 
 }
 
-fun showMaterialDatePickerExt(
+fun showMaterialDateTimePickerExt(
     fragmentManager: FragmentManager,
     title: String? = null,
     isUsingTimePicker: Boolean = false,
     callback: (date: String, time: String?, day: Int, month: Int, year: Int, hour: Int?, minute: Int?) -> Unit,
 ) {
-    // normal date picker
+
     val dateBuilder = MaterialDatePicker.Builder
         .datePicker()
         .setInputMode(MaterialDatePicker.INPUT_MODE_CALENDAR)
@@ -113,5 +114,29 @@ fun showMaterialDatePickerExt(
     }
 
     datePicker.show(fragmentManager, "MaterialDatePicker")
+
+}
+
+fun showMaterialDateRangePickerExt(
+    fragmentManager: FragmentManager,
+    title: String? = null,
+    callback: (date: String) -> Unit,
+) {
+
+    val dateBuilder = MaterialDatePicker.Builder
+        .dateRangePicker()
+        .setInputMode(MaterialDatePicker.INPUT_MODE_CALENDAR)
+
+    title?.let {
+        dateBuilder.setTitleText(it)
+    }
+
+    val datePicker: MaterialDatePicker<Pair<Long?, Long?>?> = dateBuilder.build()
+
+    datePicker.addOnPositiveButtonClickListener {
+        callback.invoke(datePicker.headerText)
+    }
+
+    datePicker.show(fragmentManager, "MaterialDateRangePicker")
 
 }

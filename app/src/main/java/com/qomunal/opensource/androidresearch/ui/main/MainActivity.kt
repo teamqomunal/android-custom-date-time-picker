@@ -4,7 +4,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.qomunal.opensource.androidresearch.common.base.BaseActivity
 import com.qomunal.opensource.androidresearch.common.ext.showDatePickerExt
-import com.qomunal.opensource.androidresearch.common.ext.showMaterialDatePickerExt
+import com.qomunal.opensource.androidresearch.common.ext.showMaterialDateRangePickerExt
+import com.qomunal.opensource.androidresearch.common.ext.showMaterialDateTimePickerExt
 import com.qomunal.opensource.androidresearch.common.ext.showMaterialTimePickerExt
 import com.qomunal.opensource.androidresearch.common.ext.showTimePickerExt
 import com.qomunal.opensource.androidresearch.databinding.ActivityMainBinding
@@ -67,7 +68,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
 
             btnMaterialDatePicker.setOnClickListener {
-                showMaterialDatePickerExt(
+                showMaterialDateTimePickerExt(
                     supportFragmentManager
                 ) { date, time, day, month, year, hour, minute ->
                     btnMaterialDatePicker.text = date
@@ -83,11 +84,19 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
 
             btnMaterialDateTimePicker.setOnClickListener {
-                showMaterialDatePickerExt(
+                showMaterialDateTimePickerExt(
                     fragmentManager = supportFragmentManager,
                     isUsingTimePicker = true
                 ) { date, time, day, month, year, hour, minute ->
                     btnMaterialDateTimePicker.text = "$date $time"
+                }
+            }
+
+            btnMaterialDateRangePicker.setOnClickListener {
+                showMaterialDateRangePickerExt(
+                    fragmentManager = supportFragmentManager
+                ) { date ->
+                    btnMaterialDateRangePicker.text = date
                 }
             }
         }
