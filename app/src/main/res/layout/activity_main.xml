@@ -73,5 +73,84 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/btn_date_time_picker" />
 
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_1dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:background="@color/text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_date_time_picker" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_material_date_picker"
+        android:layout_width="@dimen/dimen_250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:text="16-07-2025"
+        app:icon="@drawable/ic_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_line" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_material_time_picker"
+        android:layout_width="@dimen/dimen_250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:text="17.37"
+        app:icon="@drawable/ic_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_material_date_picker" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_material_date_time_picker"
+        android:layout_width="@dimen/dimen_250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:text="16-07-2025 17.37"
+        app:icon="@drawable/ic_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_material_time_picker" />
+
+    <TextView
+        android:id="@+id/tv_material_date_picker"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:text="Material Date Picker"
+        android:textColor="@color/text"
+        android:textSize="@dimen/ts16"
+        app:layout_constraintBottom_toBottomOf="@id/btn_material_date_picker"
+        app:layout_constraintEnd_toStartOf="@id/btn_material_date_picker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_material_date_picker" />
+
+    <TextView
+        android:id="@+id/tv_material_time_picker"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:text="Material Time Picker"
+        android:textColor="@color/text"
+        android:textSize="@dimen/ts16"
+        app:layout_constraintBottom_toBottomOf="@id/btn_material_time_picker"
+        app:layout_constraintEnd_toStartOf="@id/btn_material_time_picker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_material_time_picker" />
+
+    <TextView
+        android:id="@+id/tv_material_date_time_picker"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:text="Material Date Time Picker"
+        android:textColor="@color/text"
+        android:textSize="@dimen/ts16"
+        app:layout_constraintBottom_toBottomOf="@id/btn_material_date_time_picker"
+        app:layout_constraintEnd_toStartOf="@id/btn_material_date_time_picker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_material_date_time_picker" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.qomunal.opensource.androidresearch.common.base.BaseActivity
 import com.qomunal.opensource.androidresearch.common.ext.showDatePickerExt
+import com.qomunal.opensource.androidresearch.common.ext.showMaterialTimePickerExt
 import com.qomunal.opensource.androidresearch.common.ext.showTimePickerExt
 import com.qomunal.opensource.androidresearch.databinding.ActivityMainBinding
 import java.util.Calendar
@@ -60,10 +61,24 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     minDate = date1,
                     isUsingTimePicker = true,
                 ) { date, time, day, month, year, hour, minute ->
-
                     btnDateTimePicker.text = "$date $time"
-
                 }
+            }
+
+            btnMaterialDatePicker.setOnClickListener {
+
+            }
+
+            btnMaterialTimePicker.setOnClickListener {
+                showMaterialTimePickerExt(
+                    supportFragmentManager
+                ) { time, hour, minute ->
+                    btnMaterialTimePicker.text = time
+                }
+            }
+
+            btnMaterialDateTimePicker.setOnClickListener {
+
             }
         }
     }
