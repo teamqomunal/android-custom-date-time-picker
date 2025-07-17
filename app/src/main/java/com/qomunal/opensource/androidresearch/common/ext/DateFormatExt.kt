@@ -23,6 +23,12 @@ const val DATE_TIME_FORMAT_NO_SECOND_TEXT = "dd LLLL yyyy HH:mm"
 
 const val DATE_MONTH = "dd LLL"
 
+const val MATERIAL_DATE_FORMAT = "MMM dd, yyyy"
+
+const val BASE_DATE_FORMAT_DAY = "dd"
+const val BASE_DATE_FORMAT_MONTH = "MM"
+const val BASE_DATE_FORMAT_YEAR = "yyyy"
+
 const val DATE_TIME_FORMAT_AM_PM = "dd MMMM yyyy, H.mm a"
 
 const val SIMPLE_DATE_FORMAT = "dd-MM-yyyy"
