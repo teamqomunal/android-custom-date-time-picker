@@ -2,8 +2,10 @@ package com.qomunal.opensource.androidresearch.ui.main
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.qomunal.opensource.androidresearch.common.base.BaseActivity
 import com.qomunal.opensource.androidresearch.common.ext.showDatePickerExt
+import com.qomunal.opensource.androidresearch.common.ext.showFilteredDatePicker
 import com.qomunal.opensource.androidresearch.common.ext.showMaterialDateRangePickerExt
 import com.qomunal.opensource.androidresearch.common.ext.showMaterialDateTimePickerExt
 import com.qomunal.opensource.androidresearch.common.ext.showMaterialTimePickerExt
@@ -99,6 +101,20 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     btnMaterialDateRangePicker.text = date
                 }
             }
+
+            btnMaterialDateFilterPicker.setOnClickListener {
+                val today = MaterialDatePicker.todayInUtcMilliseconds()
+                val nextMonth = today + (30L * 24 * 60 * 60 * 1000)
+
+                supportFragmentManager.showFilteredDatePicker(
+                    minDate = today,
+                    maxDate = nextMonth,
+                    allowedDays = setOf(Calendar.MONDAY, Calendar.FRIDAY)
+                ) { _, date ->
+                    btnMaterialDateFilterPicker.text = date
+                }
+            }
+
         }
     }
 
